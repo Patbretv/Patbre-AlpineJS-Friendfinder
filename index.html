@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patbre Alpine JS Framework</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="./js/alpine.min.js" defer></script>
+</head>
+<body>
+  <div x-data="{ message: '' }" class="centered">
+    <input type="text" x-model="$store.state.searchtext" x-on:keyup="$store.state.search()" placeholder="Find your Friends...">
+    <div>
+      <template x-for="object in $store.state.foundobjects">
+        <div class="result">
+        <span x-text="object.name"></span>
+        <img x-bind:src="object.img" alt="image">
+        </div>
+      </template>
+    </div>
+  </div>
+  <script src="./js/app.js"></script>
+</body>
+</html>
